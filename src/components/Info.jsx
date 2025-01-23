@@ -22,9 +22,7 @@ const Info = ({ user, deleteInfoHandler }) => {
     <div style={squareStyle}>
       <div>
         {country} {gold} {silver} {bronze}
-      </div>
-      <div>
-        <Button color="red" onClick={() => deleteInfoHandler(id)}>
+        <Button color="#ddd" onClick={() => deleteInfoHandler(id)}>
           삭제
         </Button>
       </div>
