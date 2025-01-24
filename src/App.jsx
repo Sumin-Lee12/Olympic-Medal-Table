@@ -4,28 +4,50 @@ import Info from "./components/Info";
 
 const App = () => {
   const style = {
+    width: "90%",
+    backgroundColor: "white",
+    borderRadius: "10px",
+    boxShadow: "10px 10px rgba(0, 0, 0, 0.2)",
+    display: "flex", // flexbox 사용
+    flexDirection: "column", // 아이템 배치 방향: 세로
+    alignItems: "center", // 세로 정렬: 가운데
+    justifyContent: "center", // 가로 정렬: 가운데
+    margin: "auto",
+    padding: "1rem",
+  };
+
+  const outputStyle = {
+    width: "93%",
     display: "flex",
     flexDirection: "column",
-    gap: "12px",
-    padding: "50px",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: "10px",
   };
 
   const formStyle = {
-    width: "60vw",
     display: "flex",
     flexDirection: "column",
-    gap: "10px",
-    padding: "50px",
-    border: "2px solid green",
-    borderRadius: "10px",
+    alignItems: "center",
+    justifyContent: "center",
+    margin: " 0 30px",
   };
 
-  const inputStyle = {
+  const innerFormStyle = {
     width: "95%",
     display: "flex",
     flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
     gap: "10px",
     padding: "50px",
+  };
+
+  const inputStyle = {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    gap: "10px",
   };
 
   const [infos, setInfos] = useState([]);
@@ -110,35 +132,48 @@ const App = () => {
 
   return (
     // 부모요소는 하나밖에 있을 수 없기 때문에 <></>라는 빈 태그를 추가함
-    <div>
+    <div style={style}>
       <form style={formStyle} action="">
         <h1>2024 파리 올림픽</h1>
-        <div style={inputStyle}>
-          <input
-            type="text"
-            name="country"
-            value={country}
-            onChange={handleInputChange}
-            placeholder="국가 이름"
-          />
-          <input
-            type="number"
-            name="gold"
-            value={gold}
-            onChange={handleInputChange}
-          />
-          <input
-            type="number"
-            name="silver"
-            value={silver}
-            onChange={handleInputChange}
-          />
-          <input
-            type="number"
-            name="bronze"
-            value={bronze}
-            onChange={handleInputChange}
-          />
+        <div style={innerFormStyle}>
+          <div style={inputStyle}>
+            <label htmlFor="country">국가명</label>
+            <input
+              type="text"
+              id={country}
+              name="country"
+              value={country}
+              onChange={handleInputChange}
+              placeholder="국가 이름"
+            />
+          </div>
+          <div style={inputStyle}>
+            <label htmlFor="country">금메달</label>
+            <input
+              type="number"
+              name="gold"
+              value={gold}
+              onChange={handleInputChange}
+            />
+          </div>
+          <div style={inputStyle}>
+            <label htmlFor="country">은메달</label>
+            <input
+              type="number"
+              name="silver"
+              value={silver}
+              onChange={handleInputChange}
+            />
+          </div>
+          <div style={inputStyle}>
+            <label htmlFor="country">동메달</label>
+            <input
+              type="number"
+              name="bronze"
+              value={bronze}
+              onChange={handleInputChange}
+            />
+          </div>
 
           <Button color="#FCD12A" onClick={addInfoHandler}>
             국가 추가
@@ -149,18 +184,36 @@ const App = () => {
         </div>
       </form>
 
-      <div style={style}>
-        {infos.map(function (info) {
-          // 화면에 추가될 정보들을 렌더링할 코드!
-          return (
-            <Info
-              key={info.id}
-              user={info}
-              deleteInfoHandler={deleteInfoHandler}
-            />
-          );
-        })}
-      </div>
+      <div style={outputStyle}>
+  {infos.length > 0 && ( // infos 배열에 데이터가 있을 때만 테이블 렌더링
+    <table border="1" style={{ width: "100%", textAlign: "center", margin: "20px 0" }}>
+      <thead>
+        <tr>
+          <th>국가명</th>
+          <th>금메달</th>
+          <th>은메달</th>
+          <th>동메달</th>
+          <th>액션</th>
+        </tr>
+      </thead>
+      <tbody>
+        {infos.map((info) => (
+          <tr key={info.id}>
+            <td>{info.country}</td>
+            <td>{info.gold}</td>
+            <td>{info.silver}</td>
+            <td>{info.bronze}</td>
+            <td>
+              <Button onClick={() => deleteInfoHandler(info.id)}>
+                삭제
+              </Button>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  )}
+</div>
     </div>
   );
 };

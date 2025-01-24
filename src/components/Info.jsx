@@ -1,19 +1,7 @@
-import React from 'react'
-import Button from './Button';
+import React from "react";
+import Button from "./Button";
 
 const Info = ({ user, deleteInfoHandler }) => {
-  const squareStyle = {
-    width: "fitContent",
-    height: "fitContent",
-    border: "1px solid green",
-    borderRadius: "10px",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    padding: "10px",
-    margin: " 0 50px",
-  };
 
   const { country, gold, silver, bronze, id } = user;
 
@@ -30,4 +18,4 @@ const Info = ({ user, deleteInfoHandler }) => {
   );
 };
 
-export default Info
+export default Info;
