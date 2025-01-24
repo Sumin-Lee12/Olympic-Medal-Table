@@ -86,10 +86,10 @@ const App = () => {
     if (isDuplicate) {
       alert("이미 존재하는 국가입니다.");
       return; // 중복된 경우 함수 종료
-    }
-
+    } else {
     // 새로 추가되는 정보를 출력
-    setInfos([...infos, newInfo]);
+      setInfos([...infos, newInfo])
+    };
   };
 
   const updateInfoHandler = (e) => {
