@@ -4,7 +4,8 @@
 
 ## 🎥 소개 영상
 ![Image](https://github.com/user-attachments/assets/c5f4b67b-69d3-4c58-b0da-e6b06bfdf54d)
-<br/><br/>
+
+<br/><br/><br/><br/>
 
 
 ## 🧾프로젝트 소개
@@ -15,7 +16,8 @@
 
 올림픽 참가 국가와 메달 수를 집계하여 테이블로 보여주는 웹사이트입니다.
 리액트로 CRUD 기능을 구현하였습니다.
-<br/><br/>
+
+<br/><br/><br/><br/>
 
 
 ## ⚙ 주요 기능 소개
@@ -26,7 +28,8 @@
 <br/>
 2. ### 📚 component 관리
   - 하나의 .jsx파일에 모든 코드를 작성하는 대신, 여러 component를 이용해, 코드의 가독성을 높였습니다. 
-<br/>
+
+<br/><br/>
 
 
 
